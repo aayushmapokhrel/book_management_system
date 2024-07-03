@@ -17,7 +17,7 @@ def create_publication(request):
         form = PublicationForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('/book/publication')
+            return redirect('/book/publication/list')
         else:
             print(form.errors)
         
@@ -31,7 +31,7 @@ def edit_publication(request,id):
         form = PublicationForm(request.POST,instance=data)
         if form.is_valid():
             form.save()
-            return redirect('/book/publication')
+            return redirect('/book/publication/list')
         else:
             print(form.errors)
         
@@ -39,8 +39,8 @@ def edit_publication(request,id):
     return render(request,'publication/edit.html',context)
 
 def delete_publication(request,id):
-    publication = Publication.objects.get(id=id).delete()
-    return redirect('')
+    Publication.objects.get(id=id).delete()
+    return redirect('/book/publication/list')
 
 def list_genre(request):
     genre = Genre.objects.filter(is_active=True)
