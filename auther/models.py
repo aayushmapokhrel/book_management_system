@@ -14,7 +14,7 @@ class Author(models.Model):
     is_active = models.BooleanField()
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
-    modified_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    modified_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self) -> str:
         return self.name

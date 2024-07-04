@@ -56,7 +56,7 @@ def create_genre(request):
             form.save()
             return redirect('/book/genre')
         else:
-            print(form.errorrs)
+            print(form.errors)
         
     context = {'form':form}
     return render(request, 'genre/create.html', context)
