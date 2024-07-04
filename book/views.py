@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from book.models import Publication
-from book.forms import PublicationForm
+from book.models import Publication, Genre
+from book.forms import PublicationForm, GenreForm
 
 # Create your views here.
 def list_publication(request):
@@ -41,3 +41,39 @@ def edit_publication(request,id):
 def delete_publication(request,id):
     publication = Publication.objects.get(id=id).delete()
     return redirect('')
+
+def list_genre(request):
+    genre = Genre.objects.filter(is_active=True)
+    context = {'genre':genre}
+    return render(request,'genre/index.html',context)
+
+def create_genre(request):
+    form = GenreForm()
+    if request.method == 'POST':
+        form = GenreForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/book/genre')
+        else:
+            print(form.errorrs)
+        
+    context = {'form':form}
+    return render(request,'genre/create.html',context)
+
+def edit_genre(request,id):
+    data = Genre.objects.get(id=id)
+    form = GenreForm(instance=data)
+    if request.method == 'POST':
+        form = GenreForm(request.POST,instance=data)
+        if form.is_valid():
+            form.save()
+            return redirect('/book/genre')
+        else:
+            print(form.errors)
+        
+    context = {'form':form}
+    return render(request,'genre/edit.html',context)
+
+def delete_genre(request,id):
+    genre = Genre.objects.get(id=id).delete()
+    return redirect('/book/genre')
