@@ -45,7 +45,7 @@ def delete_publication(request,id):
 def list_genre(request):
     genre = Genre.objects.filter(is_active=True)
     context = {'genre':genre}
-    return render(request,'genre/index.html',context)
+    return render(request, 'genre/index.html', context)
 
 def create_genre(request):
     form = GenreForm()
@@ -58,7 +58,7 @@ def create_genre(request):
             print(form.errorrs)
         
     context = {'form':form}
-    return render(request,'genre/create.html',context)
+    return render(request, 'genre/create.html', context)
 
 def edit_genre(request,id):
     data = Genre.objects.get(id=id)
@@ -72,7 +72,7 @@ def edit_genre(request,id):
             print(form.errors)
         
     context = {'form':form}
-    return render(request,'genre/edit.html',context)
+    return render(request, 'genre/edit.html', context)
 
 def delete_genre(request,id):
     genre = Genre.objects.get(id=id).delete()
