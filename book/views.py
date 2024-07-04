@@ -41,7 +41,6 @@ def edit_publication(request, id):
 
 def delete_publication(request, id):
     Publication.objects.get(id=id).delete()
-<<<<<<< HEAD
     return redirect('/book/publication/list')
 
 def list_genre(request):
@@ -79,6 +78,3 @@ def edit_genre(request,id):
 def delete_genre(request,id):
     genre = Genre.objects.get(id=id).delete()
     return redirect('/book/genre')
-=======
-    return redirect("/book/publication/list")
->>>>>>> 9019ce4 (pr fixes)
