@@ -4,10 +4,10 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title mb-0">Publication  Form</h4>
+                <h4 class="card-title mb-0">Publication Form</h4>
             </div>
             <div class="card-body">
-                <form method = 'POST'>
+                <form method='POST'>
                     {% csrf_token %}
 
                     <div class="form-group">
@@ -20,19 +20,19 @@
                     </div>
                     <div class="form-group">
                         <label>Phone number</label>
-                       {{form.phone}}
+                        {{form.phone}}
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                       {{form.email}}
+                        {{form.email}}
                     </div>
                     <div class="form-group">
                         <label>Website</label>
-                       {{form.website}}
+                        {{form.website}}
                     </div>
                     <div class="form-group">
                         <label>is active</label>
-                       {{form.is_active}}
+                        {{form.is_active}}
                     </div>
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -43,4 +43,4 @@
     </div>
 </div>
 
-    {% endblock content %}
+{% endblock content %}
