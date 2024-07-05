@@ -46,8 +46,8 @@
 			
 				<!-- Logo -->
                 <div class="header-left">
-                    <a href="index.html" class="logo">
-						<img src="assets/img/logo.png" width="40" height="40" alt="">
+                    <a href="{% url 'homepage' %}" class="logo">
+						<img src="assets/img/user.jpg" width="40" height="40" alt="">
 					</a>
                 </div>
 				<!-- /Logo -->
@@ -103,8 +103,9 @@
 							<li class="submenu">
 								<a href="#"><i class="la la-dashboard"></i> <span> Book</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a class="" href="/book/publication/list">Publication</a></li>
+									<li><a class="" href="{% url 'list_publication' %}">Publication</a></li>
 									<li><a href="{% url 'list-genre' %}">Genre</a></li>
+									<li><a href="{% url 'list_book' %}">Book</a></li>
 
 									<!-- <li><a href="/visitor/list/">Visitor Entry</a></li> -->
 								</ul>
@@ -113,8 +114,8 @@
 							<li class="submenu">
 								<a href="#"><i class="la la-users "></i> <span> Author</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a class="" href="/author/list"> Author</a></li>
-								</ul>x
+									<li><a class="" href="{% url 'list-author' %}"> Author</a></li>
+								</ul>
 								<ul style="display: none;">
 								<a> Hello</a>
 								</ul>
