@@ -15,7 +15,7 @@ from book.views import (
 )
 
 urlpatterns = [
-    path("publicationlist", list_publication, name="list_publication"),
+    path("publication/list", list_publication, name="list_publication"),
     path("publication/create", create_publication, name="create_publication"),
     path("publication/edit/<id>", edit_publication, name="edit_publication"),
     path("publication/delete/<id>/", delete_publication, name="delete_publication"),

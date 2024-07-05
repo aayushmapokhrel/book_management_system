@@ -16,7 +16,7 @@ def create_publication(request):
         form = PublicationForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect("/book/publicationlist")
+            return redirect("/book/publication/list")
         else:
             print(form.errors)
 
@@ -31,7 +31,7 @@ def edit_publication(request, id):
         form = PublicationForm(request.POST, instance=data)
         if form.is_valid():
             form.save()
-            return redirect("/book/publicationlist")
+            return redirect("/book/publication/list")
         else:
             print(form.errors)
 
@@ -41,7 +41,7 @@ def edit_publication(request, id):
 
 def delete_publication(request, id):
     Publication.objects.get(id=id).delete()
-    return redirect("/book/publicationlist")
+    return redirect("/book/publication/list")
 
 
 def list_genre(request):
@@ -96,7 +96,7 @@ def list_book(request):
 def create_book(request):
     form = BookForm()
     if request.method == "POST":
-        form = BookForm(request.POST)
+        form = BookForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect("/book/booklist")
@@ -111,7 +111,7 @@ def edit_book(request, id):
     data = Book.objects.get(id=id)
     form = BookForm(instance=data)
     if request.method == "POST":
-        form = BookForm(request.POST, instance=data)
+        form = BookForm(request.POST, request.FILES ,instance=data)
         if form.is_valid():
             form.save()
             return redirect("/book/booklist")

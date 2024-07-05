@@ -15,6 +15,7 @@ class GenreForm(forms.ModelForm):
 
 
 class BookForm(forms.ModelForm):
+    # genre = forms.CharField(widget=forms.CheckboxSelectMultiple(attrs={"class":"select2"}))
     class Meta:
         model = Book
         fields = "__all__"

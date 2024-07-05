@@ -6,10 +6,84 @@
             <div class="card-header">
                 <h4 class="card-title mb-0">Book Form</h4>
             </div>
+
             <div class="card-body">
-                <form method = 'POST'>
+                <form method = 'POST' enctype="multipart/form-data">
+                    {{form.errors}}
                     {% csrf_token %}
-                   {{form.as_p}}
+
+                    <div class="form-group">
+                        <label>Name</label>
+                        {{form.name}}
+                    </div>
+                    <div class="form-group">
+                        <label>File</label>
+                        {{form.file}}
+                    </div>
+                    <div class="form-group">
+                        <label>Image</label>
+                        {{form.image}}
+                    </div>
+                    <div class="form-group">
+                        <label>Publication</label>
+                        {{form.publication}}
+                    </div>
+                    <div class="form-group">
+                        <label>Genre</label>
+                        {{form.genre}}
+                    </div>
+                    <div class="form-group">
+                        <label>Author</label>
+                        {{form.author}}
+                    </div>
+                    <div class="form-group">
+                        <label>Edition</label>
+                        {{form.edition}}
+                    </div>
+                    <div class="form-group">
+                        <label>Rating</label>
+                        {{form.rating}}
+                    </div>
+                    <div class="form-group">
+                        <label>ISBN Number</label>
+                        {{form.ISBN_number}}
+                    </div>
+                    <div class="form-group">
+                        <label>Reference</label>
+                        {{form.reference}}
+                    </div>
+                    <div class="form-group">
+                        <label>Discount %</label>
+                        {{form.discount_percent}}
+                    </div>
+                    <div class="form-group">
+                        <label>Page Number</label>
+                        {{form.page_number}}
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        {{form.description}}
+                    </div>
+                    <div class="form-group">
+                        <label>Demo Text</label>
+                        {{form.demo_text}}
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label>
+                        {{form.price}}
+                    </div>
+                    <div class="form-group">
+                        <label>Volume</label>
+                        {{form.volume}}
+                    </div>
+                    <div class="form-group">
+                        <label>Language</label>
+                        {{form.language}}
+                    </div>
+                    <div class="form-group">
+                        <label>is active</label>
+                       {{form.is_active}}
+                    </div>
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
@@ -20,6 +94,3 @@
 </div>
 
     {% endblock content %}
-
-
-    <!-- name publication,author,is_published, -->
