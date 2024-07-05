@@ -4,9 +4,8 @@ from auther.forms import AuthorForm
 
 # Create your views here.
 
-
 def list_author(request):
-    author = Author.objects.filter(is_active=True)
+    author = Author.objects.all()
     context = {"author": author}
     return render(request, "auther/index.html", context)
 
