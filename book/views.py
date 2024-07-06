@@ -125,3 +125,12 @@ def edit_book(request, id):
 def delete_book(request, id):
     genre = Book.objects.get(id=id).delete()
     return redirect("/book/booklist")
+
+def view_profile(request,id):
+    reader = Book.objects.get(id=id)
+    
+
+    context={
+        'data':reader
+    }
+    return render(request,'book/view.html',context)
