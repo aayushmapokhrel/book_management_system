@@ -1,9 +1,9 @@
 {% extends "home/base.html" %}
 {% block content %}
 <div class="row">
-    <h4> Genre </h4>
+    <h4> User Balance List </h4>
      <div class="col-auto float-right ml-auto">
-        <a href="{% url 'create-genre' %}" class="btn add-btn"><i class="fa fa-plus"></i> Add Genre</a>
+        <a href="" class="btn add-btn"><i class="fa fa-plus"></i> Add User Balance</a>
     </div> 
     <div class="col-md-12">
         <div class="table-responsive">
@@ -11,21 +11,20 @@
                 <thead>
                     <tr>
                         <th>SN</th>
-                        <th>Name</th>
-                        <th>Status</th>
+                        <th>User</th>
+                        <th>Balance</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for data in genre %}
+                    {% for data in user_balance %}
                     <tr>
                         <td>{{forloop.counter}}</td>
-                        <td>{{data.name}}</td>
-                        <td>{% if data.is_active %} <button class="btn-success"> Active</button> {% else %} <button class="btn-danger"> inactive</button> {% endif %}</td>
+                        <td>{{data.user}}</td>
+                        <td> Rs {{data.balance}} /-</td>
 
                         <td class="text-right">
-                            <a class="btn" href="{% url 'edit-genre' data.id %}"><i class="fa fa-pencil"></i> Edit</a>|
-                            <a class="btn" href="{% url 'delete-genre' data.id %}"><i class="fa fa-trash"></i> Delete</a>
+                            <a class="btn" href=""><i class="fa fa-pencil"></i> Update Balance</a>
                         </td>
 
                     </tr>

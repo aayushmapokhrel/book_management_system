@@ -1,15 +1,17 @@
 from django.shortcuts import render, redirect
 from book.models import Publication, Genre, Book
 from book.forms import PublicationForm, GenreForm, BookForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+@login_required()
 def list_publication(request):
-    publication = Publication.objects.filter(is_active=True)
+    publication = Publication.objects.all()
     context = {"publication": publication}
     return render(request, "publication/index.html", context)
 
-
+@login_required()
 def create_publication(request):
     form = PublicationForm()
     if request.method == "POST":
@@ -23,7 +25,7 @@ def create_publication(request):
     context = {"form": form}
     return render(request, "publication/create.html", context)
 
-
+@login_required()
 def edit_publication(request, id):
     data = Publication.objects.get(id=id)
     form = PublicationForm(instance=data)
@@ -38,18 +40,18 @@ def edit_publication(request, id):
     context = {"form": form}
     return render(request, "publication/edit.html", context)
 
-
+@login_required()
 def delete_publication(request, id):
     Publication.objects.get(id=id).delete()
     return redirect("/book/publication/list")
 
-
+@login_required()
 def list_genre(request):
-    genre = Genre.objects.filter(is_active=True)
+    genre = Genre.objects.all()
     context = {"genre": genre}
     return render(request, "genre/index.html", context)
 
-
+@login_required()
 def create_genre(request):
     form = GenreForm()
     if request.method == "POST":
@@ -63,7 +65,7 @@ def create_genre(request):
     context = {"form": form}
     return render(request, "genre/create.html", context)
 
-
+@login_required()
 def edit_genre(request, id):
     data = Genre.objects.get(id=id)
     form = GenreForm(instance=data)

@@ -130,19 +130,19 @@
                 <div class="content container-fluid">
 				
 					<!-- Page Header -->
+					
+					<!-- /Page Header -->
+					{% block content %}
 					<div class="page-header">
 						<div class="row">
 							<div class="col-sm-12">
 								<h3 class="page-title">Welcome {{user.username}}!</h3>
 								<ul class="breadcrumb">
-									<li> <a href= "/" class="breadcrumb-item active">Dashboard</a></li>
+									<li> <a href= "{% url 'homepage' %}" class="breadcrumb-item active">Dashboard</a></li>
 								</ul>
 							</div>
 						</div>
 					</div>
-					<!-- /Page Header -->
-					{% block content %}
-				
 					<div class="row">
 						<div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
 							<div class="card dash-widget">
