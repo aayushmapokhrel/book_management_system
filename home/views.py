@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from book.models import Publication, Genre, Book
 from django.contrib.auth.models import User
+from transaction.models import Transaction
 
 
 def homepage(request):
@@ -8,6 +9,9 @@ def homepage(request):
     genre = Genre.objects.count()
     book = Book.objects.count()
     user = User.objects.count()
+    income = Transaction.objects.filter(
+        transaction_type=Transaction.TransactionType.INCOME
+    )# use sum function 
     context = {
         "publication_count": publication,
         "genre_count": genre,

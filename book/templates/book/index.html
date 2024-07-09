@@ -55,6 +55,9 @@
                 <div class="profile-img">
                     {% if i.image %}
                     <img alt="" src="{{ i.image.url }}" class="avatar">
+                    {% else %}
+                    <img alt="No image" src="" class="avatar">
+
                     {% endif %}
                 </div>
                 <h4 class="user-name m-t-10 mb-0 text-ellipsis">{{i.name}}</h4>

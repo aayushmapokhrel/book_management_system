@@ -8,7 +8,7 @@
             <div class="col-sm-12">
                 <h3 class="page-title">Profile</h3>
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'homepage' %}">Dashboard</a></li>
                     <li class="breadcrumb-item active">Profile</li>
                 </ul>
             </div>
@@ -25,7 +25,12 @@
                             <div class="profile-img">
                                 <a href="">
                                     
-                                    <img src={{data.image.url}} alt="">
+                                    {% if data.image %}
+                                    <img alt="" src="{{ data.image.url }}" class="avatar">
+                                    {% else %}
+                                    <img alt="No image" src="" class="avatar">
+                
+                                    {% endif %}
                                     
                                 </a>
                             </div>
@@ -49,6 +54,7 @@
                                         <div class="staff-id">{{data.edition}} edition</div>
                                         <div class="staff-id">{{data.created_at | timesince}} ago</div>
                                         <div class="staff-id">{{data.modified_at | timesince}} age</div>
+                                        <a href="{{data.file.url}}" class="btn btn-custom" download>Download Book</a>
                                     </div>
                                 </div>
                                 <div class="col-md-7">
